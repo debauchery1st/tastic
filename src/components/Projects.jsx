@@ -7,14 +7,14 @@ const api = apiWithAxios();
 
 const Projects = props => {
   const [state, setState] = useState({
-    status: undefined,
+    status: -1,
     projects: [],
     new: false,
     editing: { name: "", description: "" }
   });
   // const [projects, setProjects] = useState([]);
   useEffect(() => {
-    if (state.status === undefined) {
+    if (state.status < 0) {
       setState({ ...state, status: 0 });
       api
         .get("/projects")
@@ -34,6 +34,20 @@ const Projects = props => {
   const handleSubmit = e => {
     e.preventDefault();
     setState({ ...state, new: !state.new });
+    // send new project to backend
+    api.post("/projects", state.editing).then(newProj => {
+      console.log(newProj);
+      // newProj.status === 201
+      //   ? setState({
+      //       ...state,
+
+      //       editing: {
+      //         name: "",
+      //         description: ""
+      //       }
+      //     })
+      //   : console.log(newProj);
+    });
   };
 
   const handleChange = e => {
@@ -58,7 +72,7 @@ const Projects = props => {
 
       {state.new ? (
         <form onSubmit={handleSubmit}>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               name="name"
