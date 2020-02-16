@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import DashBoard from "./components/DashBoard";
 import "./components/style/navbar.css";
+import "./index.css";
 
 function App() {
   const history = useHistory();
