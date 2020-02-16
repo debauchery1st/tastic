@@ -1,0 +1,12 @@
+.new-project {
+  background-color: #200f21;
+  color: whitesmoke;
+  /* color: #f638dc; */
+  border-radius: 0.5rem;
+}
+
+.submit-project {
+  background-color: #200f21;
+  color: #f638dc;
+  border-radius: 0.5rem;
+}

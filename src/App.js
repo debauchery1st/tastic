@@ -5,15 +5,21 @@ import "./components/style/navbar.css";
 
 function App() {
   const history = useHistory();
-  const [collapsed, setCollapsed] = useState(true);
-  const [active, setActive] = useState("home");
+  const [state, setState] = useState({
+    activity: "home",
+    collapsed: true
+  });
 
-  const toggleNavbar = () => setCollapsed(!collapsed);
-  const navState = collapsed ? "collapse navbar-collapse" : "navbar-collapse";
+  const toggleNavbar = () =>
+    setState({ ...state, collapsed: !state.collapsed });
+
+  const navState = state.collapsed
+    ? "collapse navbar-collapse"
+    : "navbar-collapse";
 
   const spaNavigate = e => {
     e.preventDefault();
-    setActive(e.currentTarget.name);
+    setState({ ...state, activity: e.currentTarget.name });
     history.push(`/${e.currentTarget.name}`);
   };
 
@@ -37,7 +43,11 @@ function App() {
         </button>
         <div className={navState} id="navbarNav">
           <ul className="navbar-nav">
-            <li className={active === "home" ? "nav-item active" : "nav-item"}>
+            <li
+              className={
+                state.activity === "home" ? "nav-item active" : "nav-item"
+              }
+            >
               <a
                 className="nav-link"
                 href="/"
@@ -48,7 +58,9 @@ function App() {
               </a>
             </li>
             <li
-              className={active === "projects" ? "nav-item active" : "nav-item"}
+              className={
+                state.activity === "projects" ? "nav-item active" : "nav-item"
+              }
             >
               <a
                 className="nav-link"
@@ -60,7 +72,9 @@ function App() {
               </a>
             </li>
             <li
-              className={active === "contact" ? "nav-item active" : "nav-item"}
+              className={
+                state.activity === "contact" ? "nav-item active" : "nav-item"
+              }
             >
               <a
                 className="nav-link disabled"
