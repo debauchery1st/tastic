@@ -1,14 +1,14 @@
 import React from "react";
-
+import "./style/project.css";
 const Project = props => {
   return (
-    <span>
-      <h2>{props.detail.name}</h2>
-      <p>
-        {props.detail.completed ? "✓" : ""}
-        {props.detail.description}
-      </p>
-    </span>
+    <div className="card bg-light mb-3 project">
+      <div className="card-header">{props.detail.completed ? "✓" : "todo"}</div>
+      <div className="card-body">
+        <h5 className="card-title">{props.detail.name}</h5>
+        <p className="card-text">{props.detail.description}</p>
+      </div>
+    </div>
   );
 };
 

@@ -3,10 +3,22 @@
   color: whitesmoke;
   /* color: #f638dc; */
   border-radius: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .submit-project {
   background-color: #200f21;
-  color: #f638dc;
+  color: whitesmoke;
+  /* color: #f638dc; */
   border-radius: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.projects {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }

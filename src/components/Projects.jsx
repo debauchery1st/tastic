@@ -67,7 +67,7 @@ const Projects = props => {
         className="new-project"
         onClick={() => setState({ ...state, new: !state.new })}
       >
-        new
+        new project
       </button>
 
       {state.new ? (
@@ -94,9 +94,11 @@ const Projects = props => {
       ) : (
         ""
       )}
-      {state.status === 1
-        ? state.projects.map(proj => <Project key={proj.id} detail={proj} />)
-        : spinner}
+      <div className="projects">
+        {state.status === 1
+          ? state.projects.map(proj => <Project key={proj.id} detail={proj} />)
+          : spinner}
+      </div>
     </>
   );
 };
